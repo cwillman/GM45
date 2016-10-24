@@ -3,25 +3,35 @@ extends layout
 include _includes/sharedHTMLfunctions
 
 block content
+
+
   #banner.page-header
     .row
       .col-lg-6
+        // the = signifies that the content is buffered code
         h1= pageHeader.title
-         small &nbsp;#{pageHeader.strapline}
+          small &nbsp;#{pageHeader.strapline}
+          // #{} delimiters are used to insert data into a specific place
   .row
-    .col-xs-12.col-sm-8
-      .row.list-group
-        each location in locations
-          .col-xs-12.list-group-item
+    each location in locations
+
+      .col-xs-12.col-sm-8
+
+        .row.list_group
+          .col-xs-12.list_group_item
             h4
               a(href="/location")= location.name
               small &nbsp;
                 +outputRating(location.rating)
+              // Distance to location
               span.badge.pull-right.badge-default= location.distance
+            // Address of locaiton
             p.address= location.address
             p
+
               each facility in location.facilities
                 span.label.label-warning= facility
-                &nbsp;
+                 &nbsp;
+
     .col-xs-12.col-sm-4
       p.lead= sidebar

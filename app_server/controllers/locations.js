@@ -1,5 +1,5 @@
 /* GET 'home' page */
-module.exports.homelist = function(req, res) {
+module.exports.homelist = function(req, res) { //tags
     res.render('locations-list', {
         title: 'Loc8r - find a place to work with wifi',
         pageHeader: {
